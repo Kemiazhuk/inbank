@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -38,13 +37,5 @@ public class DecisionController {
             return new ResponseEntity(new InvalidResponseDecision(validationErrors), HttpStatus.BAD_REQUEST);
         }
     }
-
-//    private static Map<String,String> getErrorMessage(Map<String, BigDecimal> validationErrors) {
-//        StringBuilder sb = new StringBuilder("Wrong data in request ");
-//        validationErrors.entrySet()
-//                .forEach(entry -> sb.append(entry.getKey()).append(": ").append(entry.getValue()).append(" "));
-//
-//        return new HashMap<>("message", sb.toString());
-//    }
 }
 

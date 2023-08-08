@@ -16,7 +16,7 @@ public class CreditScoreNotGreaterOneStrategyTest {
 
     @Test
     public void testCreditScoreNotGreaterOneStrategy() {
-        BigDecimal requestAmount = new BigDecimal("4500");
+        BigDecimal requestAmount = new BigDecimal(4500);
         BigDecimal segmentValue = new BigDecimal(Segments.valueOf("SEGMENT_1").getCreditModifier());
         BigDecimal requestMonth = new BigDecimal(45);
         String clientId = "123545";

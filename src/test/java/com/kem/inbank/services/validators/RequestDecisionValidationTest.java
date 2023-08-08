@@ -3,8 +3,6 @@ package com.kem.inbank.services.validators;
 import com.kem.inbank.dto.RequestDecision;
 import com.kem.inbank.validators.RequestDecisionValidation;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.Map;

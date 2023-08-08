@@ -97,17 +97,16 @@ public class CalculationDecisionServicesTests {
         AccountEntity accountEntity = new AccountEntity(clientId, Segments.valueOf("DEBT"));
         RequestDecision requestDecision = new RequestDecision(clientId, requestAmount, requestMonth);
 
-        ResponseDecision expectedResponse = new ResponseDecision(BigDecimal.ZERO,BigDecimal.ZERO, DecisionStatus.DEBP);
+        ResponseDecision expectedResponse = new ResponseDecision(BigDecimal.ZERO, BigDecimal.ZERO, DecisionStatus.DEBP);
         when(accountJpaRepository.findById(clientId)).thenReturn(accountEntity);
         when(rejectDecisionStrategy.getDecision(requestDecision, accountEntity)).thenReturn(expectedResponse);
 
         ResponseDecision responseDecision = calculationDecisionServices.calculation(requestDecision);
 
-        // Assert the result
         BigDecimal expectedCreditAmount = BigDecimal.ZERO;
         assertEquals(expectedCreditAmount, responseDecision.getAmount());
         assertEquals(BigDecimal.ZERO, responseDecision.getPeriod());
         Mockito.verify(rejectDecisionStrategy).getDecision(requestDecision, accountEntity);
-        Mockito.verify(decreaseCreditAmountStrategy,never()).getDecision(requestDecision, accountEntity);
+        Mockito.verify(decreaseCreditAmountStrategy, never()).getDecision(requestDecision, accountEntity);
     }
 }
